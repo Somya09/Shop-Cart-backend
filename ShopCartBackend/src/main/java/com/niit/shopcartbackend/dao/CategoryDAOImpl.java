@@ -17,13 +17,11 @@ public class CategoryDAOImpl implements CategoryDAO
 	private SessionFactory sessionFactory;
 
 
-	public CategoryDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	
 	@Transactional
 	public List<com.niit.shopcartbackend.model.Category> list() {
 		@SuppressWarnings("unchecked")
-		List<Category> listCategory = (List<Category>) sessionFactory.getCurrentSession()
+		List<Category> listCategory = (List<Category>) sessionFactory.openSession()
 		.createCriteria(Category.class)
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 
@@ -33,7 +31,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	@Transactional
 	public com.niit.shopcartbackend.model.Category get(String id) {
 		String hql = "from Category where id=" + id;
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Query query = sessionFactory.openSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")
 		List<Category> listCategory = (List<Category>) query.list();
@@ -46,16 +44,30 @@ public class CategoryDAOImpl implements CategoryDAO
 	
 @Transactional
 	public void saveOrUpdate(com.niit.shopcartbackend.model.Category category) {
-		sessionFactory.getCurrentSession().saveOrUpdate(category);
+		sessionFactory.openSession().saveOrUpdate(category);
 		
 	}
 @Transactional
 	public void delete(String id) {
 	Category CategoryToDelete=new Category();
 	CategoryToDelete.setId(id);
-	sessionFactory.getCurrentSession().delete(CategoryToDelete);
+	sessionFactory.openSession().delete(CategoryToDelete);
 		
 	}
 
+@Transactional
+public com.niit.shopcartbackend.model.Category getByName(String name) {
+	String hql = "from Category where name=" + "'"+ name +"'";
+	Query query = sessionFactory.openSession().createQuery(hql);
+	
+	@SuppressWarnings("unchecked")
+	List<Category> listCategory = (List<Category>) query.list();
+	
+	if (listCategory != null && !listCategory.isEmpty()) {
+		return listCategory.get(0);
+	}
+	
+	return null;
 		
+}
 }

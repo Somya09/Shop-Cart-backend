@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Category {
 @Id
-@Column(name="id")
+@Column(name="Category_id")
 private String id;
 public String getId() {
 	return id;
@@ -36,9 +36,9 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-
+@Column(name="Name")
 private String name;
-
+@Column(name="Description")
 private String description;
 
 }

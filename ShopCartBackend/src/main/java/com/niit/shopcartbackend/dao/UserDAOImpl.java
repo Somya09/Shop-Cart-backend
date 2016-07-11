@@ -19,7 +19,7 @@ public class UserDAOImpl implements UserDAO  {
 	@Transactional
 	public List<User> list() {
 		@SuppressWarnings("unchecked")
-		List<User> list = (List<User>) sessionFactory.getCurrentSession()
+		List<User> list = (List<User>) sessionFactory.openSession()
 				.createCriteria(User.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 
@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO  {
 
 	public User get(String id) {
 		String hql = "from User where id=" + id;
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Query query = sessionFactory.openSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")
 		List<User> list = (List<User>) query.list();
@@ -43,14 +43,14 @@ public class UserDAOImpl implements UserDAO  {
 
 @Transactional
 	public void saveOrUpdate(User user) {
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sessionFactory.openSession().saveOrUpdate(user);
 		
 	}
 @Transactional
 	public void delete(String id) {
 		User user = new User();
 		user.setId(id);
-		sessionFactory.getCurrentSession().delete(user);
+		sessionFactory.openSession().delete(user);
 		
 	}
 @Transactional

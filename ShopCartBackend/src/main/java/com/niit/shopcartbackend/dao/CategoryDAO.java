@@ -6,7 +6,7 @@ import com.niit.shopcartbackend.model.Category;
 public interface CategoryDAO {
 	
 		public List<Category> list();
-
+		public Category getByName(String name);
 		public Category get(String id);
 
 		public void saveOrUpdate(Category category);

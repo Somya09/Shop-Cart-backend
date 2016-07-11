@@ -12,5 +12,6 @@ public interface SupplierDAO {
 	public void saveOrUpdate(Supplier supplier);
 
 	public void delete(String id);
+	public Supplier getByName(String name);
 
 }
