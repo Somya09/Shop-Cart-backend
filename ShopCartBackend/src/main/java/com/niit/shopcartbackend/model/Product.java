@@ -6,7 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Entity 
@@ -17,12 +21,20 @@ public class Product {
 	@Column(name="Product_id")
 	private String id;
 	@Column(name="Name")
+	@NotNull
+	@Size(min=3)
 	private String name;
 	@Column(name="Description")
-	
+	@NotBlank
+	@Size(min=3,message="Description should be more than 3 characters")
 	private String description;
 	@Column(name="Price")
+	@Min(value=0)
 	private double price;
+	@NotNull
+	private String category_id;
+	@NotNull
+	private String supplier_id;
 	public String getId() {
 		return id;
 	}
@@ -47,8 +59,7 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	private String category_id;
-	private String supplier_id;
+	
 	public String getCategory_id() {
 		return category_id;
 	}
@@ -82,4 +93,5 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
+	
 }

@@ -1,9 +1,13 @@
 com\niit\shopcartbackend\model\User.class
-com\niit\shopcartbackend\dao\CategoryDAO.class
-com\niit\shopcartbackend\dao\SupplierDAOImpl.class
+com\niit\shopcartbackend\dao\ProductDAOImpl.class
 com\niit\shopcartbackend\model\Category.class
 com\niit\shopcartbackend\dao\SupplierDAO.class
+com\niit\shopcartbackend\dao\ProductDAO.class
 com\niit\shopcartbackend\dao\UserDAO.class
-com\niit\shopcartbackend\model\Supplier.class
 com\niit\shopcartbackend\dao\CategoryDAOImpl.class
 com\niit\shopcartbackend\dao\UserDAOImpl.class
+com\niit\shopcartbackend\model\Product.class
+com\niit\shopcartbackend\model\UserDetail.class
+com\niit\shopcartbackend\dao\CategoryDAO.class
+com\niit\shopcartbackend\dao\SupplierDAOImpl.class
+com\niit\shopcartbackend\model\Supplier.class

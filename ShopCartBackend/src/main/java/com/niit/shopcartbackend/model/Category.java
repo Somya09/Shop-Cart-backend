@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,14 @@ import org.springframework.stereotype.Component;
 public class Category {
 @Id
 @Column(name="Category_id")
+
 private String id;
+@Column(name="Name")
+@Size(min=3,max=50, message="Name should be between 3 and 50 characters")
+private String name;
+@Size(min=3,message="Description should be more than 3 characters")
+@Column(name="Description")
+private String description;
 public String getId() {
 	return id;
 }
@@ -36,9 +44,5 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-@Column(name="Name")
-private String name;
-@Column(name="Description")
-private String description;
 
 }

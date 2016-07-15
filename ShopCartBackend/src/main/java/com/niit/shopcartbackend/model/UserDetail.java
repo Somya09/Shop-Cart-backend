@@ -18,6 +18,7 @@ public class UserDetail {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private String id;
 	@Column(name="Name")
+
 private String name;
 	@Column(name="Mail_Id")
 private String mail_id;
