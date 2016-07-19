@@ -7,7 +7,9 @@ com\niit\shopcartbackend\dao\UserDAO.class
 com\niit\shopcartbackend\dao\CategoryDAOImpl.class
 com\niit\shopcartbackend\dao\UserDAOImpl.class
 com\niit\shopcartbackend\model\Product.class
+com\niit\shopcartbackend\model\Cart.class
 com\niit\shopcartbackend\model\UserDetail.class
 com\niit\shopcartbackend\dao\CategoryDAO.class
 com\niit\shopcartbackend\dao\SupplierDAOImpl.class
 com\niit\shopcartbackend\model\Supplier.class
+com\niit\shopcartbackend\model\Item.class

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDetail {
 	@Id
-	@Column(name="ID")
+	@Column(name="Id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private String id;
 	@Column(name="Name")

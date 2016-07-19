@@ -32,8 +32,10 @@ public class Product {
 	@Min(value=0)
 	private double price;
 	@NotNull
+	@Column(name="Category_id")
 	private String category_id;
 	@NotNull
+	@Column(name="Supplier_id")
 	private String supplier_id;
 	public String getId() {
 		return id;
@@ -74,7 +76,7 @@ public class Product {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name="category_id", nullable=false, updatable=false, insertable=false)
+	@JoinColumn(name="Category_id", nullable=false, updatable=false, insertable=false)
 	private Category category;
 	public Category getCategory(){
 		return category;
@@ -85,7 +87,7 @@ public class Product {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name="supplier_id", nullable=false, updatable=false, insertable=false)
+	@JoinColumn(name="Supplier_id", nullable=false, updatable=false, insertable=false)
 	private Supplier supplier;
 	public Supplier getSupplier() {
 		return supplier;
