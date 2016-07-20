@@ -2,6 +2,7 @@ package com.niit.shopcartbackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Table(name="ITEM")
 @Component
 public class Item {
+	@Id
 	@Column(name="Item_id")
 	private String id;
 	public String getId() {
@@ -26,8 +28,15 @@ public class Item {
 	private String quantity;
 		@Column(name="Price")
 	private double price;
-		@Column(name="Product_id")
 		private String product_id;
+		
+		
+		public String getProduct_id() {
+			return product_id;
+		}
+		public void setProduct_id(String product_id) {
+			this.product_id = product_id;
+		}
 		public String getName() {
 			return name;
 		}
@@ -46,12 +55,7 @@ public class Item {
 		public void setPrice(double price) {
 			this.price = price;
 		}
-		public String getProduct_id() {
-			return product_id;
-		}
-		public void setProduct_id(String product_id) {
-			this.product_id = product_id;
-		}
+		
 		@OneToOne
 		@JoinColumn(name="Product_id",nullable=false,insertable=false,updatable=false)
 		private Product product;

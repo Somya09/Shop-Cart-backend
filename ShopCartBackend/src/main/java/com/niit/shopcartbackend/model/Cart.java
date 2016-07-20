@@ -19,7 +19,14 @@ public class Cart {
 	@Id
 	@Column(name="Cart_id")
 private String cartId;
+	private String item_id;
 	
+	public String getCartId() {
+		return cartId;
+	}
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
+	}
 	@OneToOne
 	@JoinColumn(name="Id",nullable=false,updatable=false,insertable=false)
 	private User user;
@@ -30,19 +37,20 @@ private String cartId;
 		this.user = user;
 	}
 	@OneToMany
-	
-	@JoinColumn(name="Item_id",nullable=false,updatable=false,insertable=false)
+    @JoinColumn(name="Item_id")
 	List<Item> item;
-	public String getCartId() {
-		return cartId;
-	}
-	public void setCartId(String cartId) {
-		this.cartId = cartId;
-	}
+	
 	public List<Item> getItem() {
 		return item;
 	}
 	public void setItem(List<Item> item) {
 		this.item = item;
 	}
+	public String getItem_id() {
+		return item_id;
+	}
+	public void setItem_id(String item_id) {
+		this.item_id = item_id;
+	}
+	
 }

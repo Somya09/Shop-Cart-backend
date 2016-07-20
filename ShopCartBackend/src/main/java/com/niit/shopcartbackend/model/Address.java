@@ -2,6 +2,7 @@ package com.niit.shopcartbackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Table(name="ADDRESS")
 @Component
 public class Address {
+	@Id
 	@Column(name="Address_id")
 	private String id;
 		@Column(name="Locality")
